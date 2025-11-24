@@ -1,8 +1,10 @@
+package Encapsulation;
+
 import java.util.*;
 public class Student {
-    public static String name;
-    public static int Science,Maths,Social;
-    public static double total;
+    private static String name;
+    private static int Science,Maths,Social;
+    private static double total;
 
     public void setName(String name)
     {

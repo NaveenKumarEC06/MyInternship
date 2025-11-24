@@ -1,3 +1,5 @@
+package Encapsulation;
+
 import java.util.*;
 public class Marks extends Student {
     public static double total=0.0,avg=0.0;
