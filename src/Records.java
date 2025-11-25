@@ -19,6 +19,6 @@ public class Records{
         System.out.println("Enter the id  :");
         int id=sc.nextInt();
         Employee emp=new Employee(n,id);
-        System.out.println(emp);// equals(),toString(),hashCode() functions in the Employee record
+        System.out.println(emp.toString());// equals(),toString(),hashCode() functions in the Employee record
     }
 }

@@ -1,3 +1,5 @@
+package SwitchExpressions;
+
 class SwitchExp
 {
     public static void print(Object obj)
