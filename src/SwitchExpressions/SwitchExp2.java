@@ -1,3 +1,5 @@
+package SwitchExpressions;
+
 import java.util.*;
 import java.io.*;
 public class SwitchExp2 {

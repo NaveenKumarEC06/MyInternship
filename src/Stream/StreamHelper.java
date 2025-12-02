@@ -8,7 +8,7 @@ public class StreamHelper {
         System.out.println("Filtering the Employees (By Salary > 20000) :");
         emp.stream()
                 .filter(s -> s.getSalary() > 20000)
-                .collect(Collectors.toList())
+                .toList()
                 .forEach(System.out::println);
         System.out.println("-------------------------------------------------------");
     }
@@ -17,15 +17,14 @@ public class StreamHelper {
         System.out.println("Filtering the Employees (By Salary <= 20000) :");
         emp.stream()
                 .filter(s -> s.getSalary() <= 20000)
-                .collect(Collectors.toList())
+                .toList()
                 .forEach(System.out::println);
         System.out.println("-------------------------------------------------------");
     }
     public void filterEmployeeAboveAverageSalary(List<Employee> emp)
     {
         System.out.println("Filtering the Employees (Above Average Salary) :");
-        double averageSalary=emp.stream()
-                .collect(Collectors.summingDouble(Employee::getSalary))/5;
+        double averageSalary= emp.stream().mapToDouble(Employee::getSalary).sum() /5;
         System.out.println("Average Salary : "+averageSalary);
         emp.stream()
                 .filter(s -> s.getSalary() >=averageSalary)
@@ -135,7 +134,7 @@ public class StreamHelper {
     public void displayAllEmployees(List<Employee> emp)
     {
         System.out.println("EMPLOYEES LIST :");
-        emp.stream()
+        emp
                 .forEach(System.out::println);
         System.out.println("-------------------------------------------------------");
     }
@@ -143,7 +142,7 @@ public class StreamHelper {
     {
         System.out.println("No. Of Developers in the Employees List : ");
         int c= (int) emp.stream()
-                .filter(s-> s.getRole()== "Developer")
+                .filter(s-> s.getRole().equals("Developer"))
                 .count();
         System.out.println(c);
         System.out.println("-------------------------------------------------------");
@@ -163,7 +162,7 @@ public class StreamHelper {
         System.out.println("Most Experienced Employee of the Company : ");
         Optional<Employee> temp=emp.stream()
                 .min(Comparator.comparingInt(Employee::getYearOfJoining));
-        System.out.println(temp.get());
+        System.out.println(temp.isPresent()? temp.get():"LIST IS EMPTY");
         System.out.println("-------------------------------------------------------");
     }
     public void checkValidName(List<Employee> emp)
@@ -190,7 +189,7 @@ public class StreamHelper {
         System.out.println("Employee having Experience Below 3 Years : ");
         emp.stream()
                 .filter(n->(2025 - n.getYearOfJoining())<3)
-                .collect(Collectors.toList())
+                .toList()
                 .forEach(System.out::println);
         System.out.println("-------------------------------------------------------");
 
@@ -201,7 +200,7 @@ public class StreamHelper {
         emp.stream()
                 .map(Employee::getName)
                 .distinct()
-                .collect(Collectors.toList())
+                .toList()
                 .forEach(System.out::println);
         System.out.println("-------------------------------------------------------");
     }
@@ -209,7 +208,7 @@ public class StreamHelper {
     {
         System.out.println("Recently Joined Employee : ");
         emp.stream()
-                .collect(Collectors.maxBy(Comparator.comparingInt(Employee::getYearOfJoining)))
+                .max(Comparator.comparingInt(Employee::getYearOfJoining))
                 .stream()
                 .toList()
                 .forEach(System.out::println);
@@ -222,7 +221,7 @@ public class StreamHelper {
                 .collect(Collectors.groupingBy(Employee::getId,Collectors.mapping(Employee::getName,Collectors.toList())))
                         .forEach((id,name)->{
                             System.out.print(id + " - ");
-                            name.forEach(n-> System.out.println(n));
+                            name.forEach(System.out::println);
                         });
         System.out.println("-------------------------------------------------------");
     }

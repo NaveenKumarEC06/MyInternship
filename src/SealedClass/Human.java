@@ -1,3 +1,5 @@
+package SealedClass;
+
 import java.lang.*;
 public sealed class Human permits Person1,Person2,Person3{
 

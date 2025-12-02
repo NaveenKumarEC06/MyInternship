@@ -1,6 +1,8 @@
+package SwitchExpressions;
+
 import java.util.*;
-import java.io.*;
-public class SwitchExp3{
+
+class SwitchExp3{
 
     public void print(Object b)
     {
@@ -25,7 +27,7 @@ public class SwitchExp3{
         };
         System.out.println(result);
     }
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         SwitchExp3 m=new SwitchExp3();
         Scanner sc=new Scanner(System.in);
