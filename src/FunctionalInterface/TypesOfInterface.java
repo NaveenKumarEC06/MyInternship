@@ -7,8 +7,7 @@ public class TypesOfInterface {
         Random r=new Random();
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter the User Name :");
-        String s=sc.
-                next();
+        String s=sc.next();
         int min=1000;
         int max=10000;
         int randomNumber=r.nextInt(max-min+1)+min;
